@@ -31,7 +31,7 @@ def chamada():
 
     # se tiver algum alerta ele grava na fila
     if running and res:
-        res = resultado_x9.put(res)
+        resultado_x9.put(res)
 
 def agendar_funcao():
     Thread(target=chamada).start()
@@ -48,7 +48,7 @@ def handle_start_x9(client: Client, message: Message):
 
         while running:
             schedule.run_pending()
-            sleep(10)
+            sleep(1)
             # verifica se existe ocorrência
             if not resultado_x9.empty():
                 ocorrencias = resultado_x9.get()

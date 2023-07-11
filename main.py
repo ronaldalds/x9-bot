@@ -27,7 +27,16 @@ def start(client, message: Message):
 /logistica - Setor Logistica
 /chat - Para informa seu chat_id
 """)
-    
+
+@app.on_message(filters.command("logistica"))
+@authorization(chat_adm)
+def financeiro(client, message: Message):
+    message.reply_text(f"""
+/iniciar_x9 - Iniciar x9
+/parar_x9 - Parar x9
+/status_x9 - Status x9
+""")
+
 @app.on_message(filters.command("chatgroup"))
 @authorization(chat_adm)
 def handle_chatgroup_id(client: Client, message: Message):
@@ -35,8 +44,9 @@ def handle_chatgroup_id(client: Client, message: Message):
 
 @app.on_message(filters.command("chat"))
 def handle_chat_id(client: Client, message: Message):
-    client.send_message(message.from_user.id, message.from_user.id,)
-    print(message.from_user.id)
+    text = f"{message.chat.first_name}.{message.chat.last_name} - ID:{message.from_user.id}"
+    client.send_message(message.from_user.id, text)
+    print(text)
 
 # iniciar x9
 @app.on_message(filters.command("iniciar_x9"))

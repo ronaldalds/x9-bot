@@ -8,7 +8,6 @@ def x9(data: datetime, ciclo: int):
     ajuste_gmt = timedelta(hours=3)
     data_inicial = (data - duracao)
     data_final = data
-    print(f"iniciando verificação: {datetime.now()}")
     dados = avin.alerts_period(inicial=int(data_inicial.timestamp()), final=int(data_final.timestamp()))
 
     if dados:
