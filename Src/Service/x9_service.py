@@ -3,6 +3,7 @@ from collections import Counter
 from datetime import datetime, timedelta
 
 def x9(data: datetime, ciclo: int):
+    print(f"Iniciando verificação: {data.strftime('%d/%m/%Y %H:%M:%S')}")
     avin = APIavin()
     duracao = timedelta(minutes=ciclo)
     ajuste_gmt = timedelta(hours=3)
