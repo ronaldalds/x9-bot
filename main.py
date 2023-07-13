@@ -8,7 +8,7 @@ from Src.Controller.x9_controller import handle_start_x9, handle_stop_x9, handle
 
 load_dotenv()
 
-version = "0.0.6"
+version = "0.0.7"
 
 app = Client(
     name=os.getenv("BOT_NAME_TELEGRAM"), 
