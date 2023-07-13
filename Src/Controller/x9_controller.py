@@ -20,7 +20,7 @@ def handle_start_x9(client: Client, message: Message):
         running = True
         data = datetime.now()
         message.reply_text("X9 em execução.")
-        print(f"X9 em execução: {data}")
+        print(f"X9 em execução: {data}- {data.timestamp()}")
 
         while running:
             sleep(1)
