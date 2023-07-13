@@ -29,6 +29,7 @@ def handle_start_x9(client: Client, message: Message):
                 res = x9(data, tempo_ciclo)
                 if res:
                     for ocorrencia in res:
+                        print(ocorrencia)
                         # enviar ocorrências
                         client.send_message(grupo_transport, ocorrencia)
 
