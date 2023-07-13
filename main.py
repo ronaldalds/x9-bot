@@ -19,10 +19,12 @@ app = Client(
 
 chat_adm = [
     os.getenv("CHAT_ID_ADM"),
+    os.getenv("CHAT_ID_SISTEMA"),
 ]
 
 chat_x9 = [
     os.getenv("CHAT_ID_ADM"),
+    os.getenv("CHAT_ID_SISTEMA"),
 ]
 
 @app.on_message(filters.command("start"))
