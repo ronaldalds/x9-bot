@@ -46,7 +46,7 @@ def handle_stop_x9(client: Client, message: Message):
         running = False
         message.reply_text("Pedido de parada do X9 iniciado...")
     else:
-        message.reply_text("Cancelamento parado")
+        message.reply_text("X9 parado")
         
 def handle_status_x9(client: Client, message: Message):
     global running
