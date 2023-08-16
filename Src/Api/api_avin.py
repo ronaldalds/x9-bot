@@ -1,6 +1,5 @@
 import requests
 import os
-import time
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -28,9 +27,15 @@ class APIavin:
                     return False
             else:
                 raise Exception(f'Error ao obeter alerts API {response.status_code}')
-        except requests.exceptions.ConnectionError:
-            time.sleep(5)
-            self.alerts_period(inicial, final)
+            
+        except requests.exceptions.ConnectionError as conn_error:
+            print(f"Erro de conexão: {conn_error}")
+        except requests.exceptions.HTTPError as http_err:
+            print(f"Erro HTTP: {http_err}")
+        except requests.exceptions.RequestException as req_err:
+            print(f"Erro na requisição: {req_err}")
+        except Exception as err:
+            print(f"Erro desconhecido: {err}")
 
     def veiculo_id(self, id, inicial, final):
         try:
@@ -47,9 +52,14 @@ class APIavin:
                         ocorrencia['velocidade'] = alert['ras_eve_velocidade']
                         alerts_velocidade.append(ocorrencia)
                 return alerts_velocidade
-            
             else:
                 raise Exception(f'Error ao obeter veiculo API {response.status_code}')
-        except requests.exceptions.ConnectionError:
-            time.sleep(5)
-            self.veiculo_id(id, inicial, final)
+            
+        except requests.exceptions.ConnectionError as conn_error:
+            print(f"Erro de conexão: {conn_error}")
+        except requests.exceptions.HTTPError as http_err:
+            print(f"Erro HTTP: {http_err}")
+        except requests.exceptions.RequestException as req_err:
+            print(f"Erro na requisição: {req_err}")
+        except Exception as err:
+            print(f"Erro desconhecido: {err}")
