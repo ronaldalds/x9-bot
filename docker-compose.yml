@@ -5,4 +5,4 @@ services:
     container_name: x9
     build: .
     image: x9:0.0.8
-    command: python main.py
+    tty: true
