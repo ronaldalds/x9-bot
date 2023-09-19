@@ -1,8 +1,0 @@
-version: '3.8'
-
-services:
-  x9:
-    container_name: x9
-    build: .
-    image: x9:0.0.8
-    tty: true
